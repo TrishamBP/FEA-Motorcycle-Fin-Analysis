@@ -1,6 +1,3 @@
-%% Applied Finite Element Method.
-%% HW-3. Trisham Bharat Patil. 688519827.
-%% 2) 2 gauss points
 clc 
 clear all
 % Preliminary Given Data
@@ -64,7 +61,7 @@ if nn == 5
         fprintf(fid,'%8f %8f %8f %8f %8f %8f \n',Lhs(i,:),Rhs(i));
     end
 end
-%% 3).
+
 % Applying the type 2 BC.
 Bdy_Loc= nn;
 Rhs(Bdy_Loc) = Rhs(Bdy_Loc) -( (1)*((D-(2*alpha*Length)))*5);
@@ -77,7 +74,7 @@ if nn == 5
         fprintf(fid,'%8f %8f %8f %8f %8f %8f \n',Lhs(i,:),Rhs(i));
     end
 end
-%% 4).
+
 % Applying type 1 BC.
 Bdy_Loc = 1; 
 Lhs(Bdy_Loc,:) = 0;  
@@ -92,7 +89,7 @@ if nn == 5
     end
 end
 
-%% 5). Solving using “MCycle_Fin_20.txt” file.
+ Solving using “MCycle_Fin_20.txt” file.
 % Calling the matrix solver.
 temperature = Lhs\Rhs; %The solution.
 % Display temperature solution
@@ -101,7 +98,7 @@ xlabel('Distance along fin')
 ylabel('Temperature')
 title('Thin fin heat conduction problem')
 
-%% 6). Finding the temperature at the tip.
+%% Finding the temperature at the tip.
 temp_at_tip=temperature(nn,1) %% T=89.5704 degC
 
 
